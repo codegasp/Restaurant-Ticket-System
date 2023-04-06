@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class TicketingSystem {
+    
+    // Define constants for dish categories
+    
+    public static final String APPETIZER = "appetizer";
+    public static final String ENTREE = "entree";
+    public static final String DESSERT = "dessert";
+    
+    // Define a map to store prices of dishes
+    
+    private static Map<String, Double> prices;
+    
+    // Initialize prices of dishes in the constructor
+    
+    public TicketingSystem() {
+        prices = new HashMap<String, Double>();
+        prices.put("Caesar Salad", 8.99);
+        prices.put("Tomato Soup", 6.99);
+        prices.put("Grilled Chicken", 12.99);
+        prices.put("Ribeye Steak", 24.99);
+        prices.put("Salmon Fillet", 18.99);
+        prices.put("Chocolate Cake", 7.99);
+        prices.put("Cheesecake", 9.99);
+    }
+    
+    // Define a class for dishes
+
+
+    
+    // Define a method to print a ticket to the appropriate station
+    
+    public static void printTicket(Ticket ticket) {
+        System.out.println("Table " + ticket.getTableNumber() + ":");
+        double total = 0.0;
+        for (Dish dish : ticket.getDishes()) {
+            System.out.println(dish.getName() + " - " + prices.get(dish.getName()));
+            total += prices.get(dish.getName());
+        }
+        System.out.println("Total: " + total);
+    }
+}
